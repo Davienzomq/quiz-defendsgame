@@ -2117,11 +2117,11 @@ async function deleteSave() {
                     gameState.coins += coinsEarned;
                     gameState.points += gameState.quiz.score * 5;
                     
-                    showNotification(`✅ Quiz complete! Score: ${gameState.quiz.score}/5. Earned: ${coinsEarned} coins`, 3000);
+                    showNotification(`✅ Quiz complete! Score: ${gameState.quiz.score}/5. Earned: ${coinsEarned} coins`, 1000);
                     
                     setTimeout(() => {
                         handleQuizCompletion();
-                    }, 2000);
+                    }, 100);
                     return;
                 }
 
@@ -2178,10 +2178,10 @@ async function deleteSave() {
                         
                         if (isCorrect) {
                             gameState.quiz.score++;
-                            showNotification('✅ Correct! +10 coins', 1500);
+                            showNotification('✅ Correct! +10 coins', 1000);
                         } else {
                             const correctAnswer = gameState.quiz.currentShuffledOptions[gameState.quiz.currentCorrectIndex];
-                            showNotification(`❌ Wrong! Correct: ${correctAnswer}`, 1500, true);
+                            showNotification(`❌ Wrong! Correct: ${correctAnswer}`, 1000, true);
                         }
                         
                         gameState.quiz.waitingForNext = true;
@@ -2190,7 +2190,7 @@ async function deleteSave() {
                         setTimeout(() => {
                             gameState.quiz.waitingForNext = false;
                             render();
-                        }, 1500);
+                        }, 100);
                     };
 
                     window.backToMenuFromQuiz = () => {
